@@ -1,33 +1,33 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
-struct student {
-    //학번
-    int ID;
-    //이름
-    char name[20];
-    //학점
-    double grade;
+struct point{
+    int x;
+    int y;
+    
 };
+
 
 int main(int argc, char * argv[]) {
     
-    //변수선언 및 초기화
-    struct student stud = {10, "sowon", 4.3};
-    struct student *stdPtr;
+    struct point p1, p2;
+    int xdiff, ydiff;
+    double dist;
     
-    stdPtr = &stud;
+    printf("input p1 coordinate (x y) : ");
+    scanf("%d %d", &p1.x, &p1.y);
     
-    //학번 이름 학점 값 변경
-    stdPtr->ID = 17;
-    strcpy(stdPtr->name, "lee");
-    stdPtr->grade = 2.0;
+    printf("input p2 coordinate (x y) : ");
+    scanf("%d %d", &p2.x, &p2.y);
+
+    xdiff = p1.x - p2.x;
+    ydiff = p1.y - p2.y;
+    dist = sqrt(xdiff*xdiff + ydiff*ydiff);
     
-    //각각 출력
-    printf("ID : %i, name : %s, grade : %lf\n",
-           stdPtr->ID, stdPtr->name, stdPtr->grade);
-           
+    printf("distance : %lf\n", dist);
+
+
     system("PAUSE");
     return 0;
 }
